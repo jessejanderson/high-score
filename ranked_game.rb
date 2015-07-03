@@ -1,7 +1,3 @@
-# Need to add times_ranked so that anomalies that rank high early will get pushed back quicker
-# Currently, games that rank high earlier can only fall one spot at a time
-# http://stackoverflow.com/questions/1855800/1-vs-1-vote-calculate-ratings-flickchart-com
-#
 # wins / fights = confidence?
 # nope, 1 / fights = how much needed to retest
 # should also account for (least recently checked)
@@ -9,6 +5,14 @@
 # loserIndex = everything past this index has never won a fight
 # or maybe it should be held in a separate array?
 
+# TO-DO
+#
+# [ ] Create algorithm for "random" games
+#     More likely: less fights, popular games, current & not recently fought
+# [ ] Create a fights.count threshfold for "probably done ranking"
+# [ ] Allow that threshold to be disturbed if a high ranking game gets surpassed
+# [ ] sync with external game database
+#
 
 
 require 'io/console'
@@ -27,33 +31,20 @@ class Game
   end
 end
 
-
-if File.exists?('all_games_list.txt')
-  File.open('all_games_list.txt') do |f|
-    @all_games = Marshal.load(f)
+# This should be it's own method for different files
+if File.exists?('saved_file.txt')
+  File.open('saved_file.txt') do |f|
+    saved_file = Marshal.load(f){:all_games}
+    @all_games = saved_file[:all_games]
+    @high_score_list = saved_file[:high_score_list]
+    @losersIndex = saved_file[:losers_index]
   end
 else
   @all_games = [Game.new("Assassin's Creed IV: Black Flag"), Game.new("Battlefield 4"), Game.new("Call of Duty: Advanced Warfare"), Game.new("Call of Duty: Ghosts"), Game.new("Child of Light"), Game.new("Crimson Dragon"), Game.new("Dead Rising 3"), Game.new("Destiny"), Game.new("Destiny: Expansion I - The Dark Below"), Game.new("Destiny: Expansion II - House of Wolves"), Game.new("Diablo III: Reaper of Souls"), Game.new("Dragon Age: Inquisition"), Game.new("Dying Light"), Game.new("Far Cry 4"), Game.new("Forza Motorsport 5"), Game.new("Guacamelee!: Super Turbo Championship Edition"), Game.new("Halo: The Master Chief Collection"), Game.new("Madden NFL 25"), Game.new("Max: The Curse of Brotherhood"), Game.new("Middle-earth: Shadow of Mordor"), Game.new("Need for Speed: Rivals"), Game.new("Ryse: Son of Rome"), Game.new("Sniper Elite III"), Game.new("Titanfall"), Game.new("Trials Fusion"), Game.new("Watch_Dogs"), Game.new("Wolfenstein: The New Order"), Game.new("Xbox Fitness"), Game.new("Zoo Tycoon")]
-  File.open('all_games_list.txt', 'w+') do |f|
-    Marshal.dump(@all_games, f)
-  end
-end
-
-if File.exists?('high_score_list.txt')
-  File.open('high_score_list.txt') do |f|
-    @high_score_list = Marshal.load(f)
-  end
-else
   @high_score_list = []
+  @loserIndex = 0
 end
 
-if File.exists?('losers_index.txt')
-  File.open('losers_index.txt') do |f|
-    @losersIndex = Marshal.load(f)
-  end
-else
-  @losersIndex = 0
-end
 
 puts "Ranking from #{@all_games.count} games."
 

@@ -48,11 +48,9 @@ def compareGames(source_list, ranked_list)
   answer = STDIN.getch
 
   if answer == ?x
-    File.open('high_score_list.txt', 'w+') do |f|
-      Marshal.dump(ranked_list, f)
-    end
-    File.open('losers_index.txt', 'w+') do |f|
-      Marshal.dump(@losersIndex, f)
+    saved_file = {all_games: @all_games, high_score_list: @high_score_list, loser_index: @losersIndex}
+    File.open('saved_file.txt', 'w+') do |f|
+      Marshal.dump(saved_file, f)
     end
     puts "Thanks for playing!"
     return
