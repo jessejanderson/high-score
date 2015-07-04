@@ -39,7 +39,7 @@ def compareGames(source_list, ranked_list)
   puts ""
 
   # puts "[q = never played 1, w = never played 2, e = never played either]"
-  puts "[x to exit]"
+  puts "[x to exit, o to start over]"
   puts "[Vote for 1 or 2]"
   puts ""
   puts "Which game is better?"
@@ -48,15 +48,25 @@ def compareGames(source_list, ranked_list)
   answer = STDIN.getch
 
   if answer == ?x
-    saved_file = {all_games: @all_games, high_score_list: @high_score_list, loser_index: @losersIndex}
-    File.open('saved_file.txt', 'w+') do |f|
-      Marshal.dump(saved_file, f)
-    end
+    saveDefault
     puts "Thanks for playing!"
     return
-  elsif answer == ?1
+  elsif answer == ?o
+    puts ""
+    puts "Are you sure you want to reset your High Score?"
+    puts "This will delete all data"
+    puts "[y/n]"
+    reset_answer = STDIN.getch
+    if reset_answer == ?y
+      applyDefaultData
+      puts "Resetting your High Score"
+      puts "..."
+      puts "Your High Score has been reset"
+      return
+    end
+  elsif answer == ?1 or answer == ?a
     rankTwoItems(firstGame, secondGame, ranked_list)
-  elsif answer == ?2
+  elsif answer == ?2 or answer == ?d
     rankTwoItems(secondGame, firstGame, ranked_list)
   end
   # elsif answer == ?q
