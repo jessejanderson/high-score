@@ -59,6 +59,7 @@ def compareGames(source_list, ranked_list)
     reset_answer = STDIN.getch
     if reset_answer == ?y
       applyDefaultData
+      saveDefault
       puts "Resetting your High Score"
       puts "..."
       puts "Your High Score has been reset"
