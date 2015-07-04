@@ -5,7 +5,7 @@ def compareGames(source_list, ranked_list)
   puts "========================================"
   puts "  HIGH SCORE"
   puts "========================================"
-  ranked_list.each_with_index {|game, index| puts "  #{index+1}. #{game}"}
+  ranked_list.each_with_index {|game, index| puts "  #{index+1}. #{game} [#{game.fights} #{game.winPercentage.round(2)}%]"}
   puts "========================================"
   puts ""
 
@@ -18,9 +18,14 @@ def compareGames(source_list, ranked_list)
   secondGameIndex = ranked_list.index(secondGame)
 
   def addFightCount
-    firstGame.fights = firstGame.fights + 1
-    secondGame.fights = secondGame.fights + 1
+    firstGame.fights += 1
+    secondGame.fights += 1
   end
+
+  def addWonFightCount(winner)
+    winner.fights_won += 1
+  end
+
 
   if firstGameIndex and secondGameIndex
     if firstGameIndex < secondGameIndex

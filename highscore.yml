@@ -1,0 +1,120 @@
+---
+:all_games:
+- !ruby/object:Game
+  name: 'Assassin''s Creed IV: Black Flag'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Battlefield 4
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Call of Duty: Advanced Warfare'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Call of Duty: Ghosts'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Child of Light
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Crimson Dragon
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Dead Rising 3
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Destiny
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Destiny: Expansion I - The Dark Below'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Destiny: Expansion II - House of Wolves'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Diablo III: Reaper of Souls'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Dragon Age: Inquisition'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Dying Light
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Far Cry 4
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Forza Motorsport 5
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Guacamelee!: Super Turbo Championship Edition'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Halo: The Master Chief Collection'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Madden NFL 25
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Max: The Curse of Brotherhood'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Middle-earth: Shadow of Mordor'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Need for Speed: Rivals'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Ryse: Son of Rome'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Sniper Elite III
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Titanfall
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Trials Fusion
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Watch_Dogs
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: 'Wolfenstein: The New Order'
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Xbox Fitness
+  fights: 0
+  fights_won: 0
+- !ruby/object:Game
+  name: Zoo Tycoon
+  fights: 0
+  fights_won: 0
+:high_score_list: []
+:losers_index: 0

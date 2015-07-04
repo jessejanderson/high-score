@@ -7,8 +7,10 @@ def rankTwoItems(winner, loser, ranked_list)
   puts "winnerRank is #{winnerRank}"
   loserRank   = ranked_list.index(loser)
   puts "loserRank is #{loserRank}"
-  winner.fights += 1
+
   loser.fights += 1
+  winner.fights += 1
+  winner.fights_won += 1
 
   if winnerRank != nil and loserRank != nil
     if winnerRank > loserRank
