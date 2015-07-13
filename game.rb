@@ -1,6 +1,7 @@
 class Game
   attr_accessor :fights, :fights_won
   attr_reader :name
+
   def initialize(name)
     @name       = name
     @fights     = 0
@@ -12,6 +13,6 @@ class Game
   end
 
   def winPercentage
-    fights_won.to_f / fights.to_f
+    fights_won.to_f / fights.to_f * 100
   end
 end
